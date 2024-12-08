@@ -13,7 +13,7 @@ public class JavaCup {
         int k = scanner.nextInt();
         //temp();
         eval(i, j, k);
-        int n = 20000, as = 63689, b = 12345, mod=1003;
+        int n = 100000, as = 63689, b = 12345, mod=1003;
         int[] a = new int[n];
         a[0] = 2;
         for (int l = 1; l < n; l++)
