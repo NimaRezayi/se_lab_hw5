@@ -11,8 +11,14 @@ public class JavaCup {
         int j = scanner.nextInt();
         System.out.println("Press number3: ");
         int k = scanner.nextInt();
-        temp();
+        //temp();
         eval(i, j, k);
+        int n = 20000, as = 63689, b = 12345, mod=1003;
+        int[] a = new int[n];
+        a[0] = 2;
+        for (int l = 1; l < n; l++)
+            a[l] = (as*a[l-1]+b)%mod;
+        System.out.println(countDuplicatesBruteForce(a));
     }
     public static void eval(int i, int j, int k)
     {
@@ -32,5 +38,16 @@ public class JavaCup {
                 idx++;
             }
         }
+    }
+    public static int countDuplicatesBruteForce(int[] numbers) { // new inefficient code
+        int dup = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = i + 1; j < numbers.length; j++) {
+                if (numbers[i] == numbers[j]) {
+                    dup++;
+                }
+            }
+        }
+        return dup;
     }
 }
