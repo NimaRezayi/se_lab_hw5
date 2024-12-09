@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class JavaCup {
@@ -18,7 +19,7 @@ public class JavaCup {
         a[0] = 2;
         for (int l = 1; l < n; l++)
             a[l] = (as*a[l-1]+b)%mod;
-        System.out.println(countDuplicatesBruteForce(a));
+        System.out.println(countDuplicatesOptimized(a));
     }
     public static void eval(int i, int j, int k)
     {
@@ -39,13 +40,14 @@ public class JavaCup {
             }
         }
     }
-    public static int countDuplicatesBruteForce(int[] numbers) { // new inefficient code
+    public static int countDuplicatesOptimized(int[] numbers) { // new inefficient code
         int dup = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            for (int j = i + 1; j < numbers.length; j++) {
-                if (numbers[i] == numbers[j]) {
-                    dup++;
-                }
+        HashSet<Integer> seen = new HashSet<>();
+        for (int number : numbers) {
+            if (!seen.contains(number)) {
+                seen.add(number);
+            } else {
+                dup++;
             }
         }
         return dup;
